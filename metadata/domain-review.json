@@ -1,0 +1,73 @@
+{
+  "repo": "delta-data-transform-pipe",
+  "language": "C++",
+  "category": "Data engineering",
+  "goal": "Build a C++ toolkit that studies transform behavior through node-edge fixtures, with cycle and reachability reports and synthetic fixtures only.",
+  "review_model": {
+    "terms": [
+      "schema drift",
+      "lineage depth",
+      "partition skew",
+      "quality gap"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "schema drift",
+      "signal": 46,
+      "slack": 23,
+      "drag": 27,
+      "confidence": 77,
+      "score": 111,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "lineage depth",
+      "signal": 79,
+      "slack": 31,
+      "drag": 22,
+      "confidence": 78,
+      "score": 201,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "partition skew",
+      "signal": 81,
+      "slack": 49,
+      "drag": 16,
+      "confidence": 53,
+      "score": 216,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "quality gap",
+      "signal": 84,
+      "slack": 34,
+      "drag": 12,
+      "confidence": 84,
+      "score": 250,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "schema drift",
+      "signal": 92,
+      "slack": 40,
+      "drag": 18,
+      "confidence": 54,
+      "score": 224,
+      "lane": "ship"
+    }
+  ]
+}
